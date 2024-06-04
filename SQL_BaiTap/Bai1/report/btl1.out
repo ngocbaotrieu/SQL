@@ -1,0 +1,41 @@
+\BOOKMARK [1][-]{section*.4}{Danh s\341ch h\354nh ve}{}% 1
+\BOOKMARK [1][-]{section.1}{Phn chung}{}% 2
+\BOOKMARK [2][-]{subsection.1.1}{C\341c c\342u lnh tao bang v\340 r\340ng buc}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.2}{C\341c lnh tao chi muc}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.3}{C\341c lnh th\352m d liu v\340o bang}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Phn ri\352ng}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Thao t\341c vi bang d liu course}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Thu tuc Insert d liu}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Trigger after insert course}{subsection.2.1}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Trigger before delete course}{subsection.2.1}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Thu tuc cha c\342u truy vn 1}{subsection.2.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Thu tuc cha c\342u truy vn 2}{subsection.2.1}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.6}{H\340m 1}{subsection.2.1}% 13
+\BOOKMARK [3][-]{subsubsection.2.1.7}{H\340m 2}{subsection.2.1}% 14
+\BOOKMARK [3][-]{subsubsection.2.1.8}{Giao din ng dung v\340 c\341c h\354nh anh minh hoa}{subsection.2.1}% 15
+\BOOKMARK [2][-]{subsection.2.2}{Thao t\341c vi bang d liu comment}{section.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Thu tuc Insert d liu}{subsection.2.2}% 17
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Trigger before insert comment}{subsection.2.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Trigger after update comment}{subsection.2.2}% 19
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Thu tuc cha c\342u truy vn 1}{subsection.2.2}% 20
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Thu tuc cha c\342u truy vn 2}{subsection.2.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.2.6}{H\340m 1}{subsection.2.2}% 22
+\BOOKMARK [3][-]{subsubsection.2.2.7}{H\340m 2}{subsection.2.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.2.8}{Giao din ng dung v\340 c\341c h\354nh anh minh hoa}{subsection.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.3}{Thao t\341c vi bang d liu student}{section.2}% 25
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Thu tuc Insert d liu}{subsection.2.3}% 26
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Trigger delete student}{subsection.2.3}% 27
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Trigger number student deleted}{subsection.2.3}% 28
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Thu tuc cha c\342u truy vn 1}{subsection.2.3}% 29
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Thu tuc cha c\342u truy vn 2}{subsection.2.3}% 30
+\BOOKMARK [3][-]{subsubsection.2.3.6}{H\340m 1}{subsection.2.3}% 31
+\BOOKMARK [3][-]{subsubsection.2.3.7}{H\340m 2}{subsection.2.3}% 32
+\BOOKMARK [3][-]{subsubsection.2.3.8}{Giao din ng dung v\340 c\341c h\354nh anh minh hoa}{subsection.2.3}% 33
+\BOOKMARK [2][-]{subsection.2.4}{Database Diagram}{section.2}% 34
+\BOOKMARK [1][-]{section.3}{Phu luc}{}% 35
+\BOOKMARK [2][-]{subsection.3.1}{B\341o c\341o b\340i tp ln s 1}{section.3}% 36
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Thu thp v\340 ph\342n t\355ch y\352u cu \(phi\352n ban cu\):}{subsection.3.1}% 37
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Ve \(E-\)ERD \(\343 chinh sa\)}{subsection.3.1}% 38
+\BOOKMARK [3][-]{subsubsection.3.1.3}{\301nh xa sang lc \040c s d liu \(\343 chinh sa\)}{subsection.3.1}% 39
+\BOOKMARK [2][-]{subsection.3.2}{Source code chng tr\354nh}{section.3}% 40
+\BOOKMARK [2][-]{subsection.3.3}{Bang ph\342n c\364ng nhim vu cho phn chung}{section.3}% 41

@@ -1,0 +1,41 @@
+\contentsline {section}{Danh s\'ach h\`inh v\~e}{2}{section*.4}% 
+\contentsline {section}{\numberline {1}Phần chung}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Các câu lệnh tạo bảng và ràng buộc}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Các lệnh tạo chỉ mục}{11}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Các lệnh thêm dữ liệu vào bảng}{15}{subsection.1.3}% 
+\contentsline {section}{\numberline {2}Phần riêng}{37}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Thao tác với bảng dữ liệu course}{37}{subsection.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Thủ tục Insert dữ liệu}{37}{subsubsection.2.1.1}% 
+\contentsline {subsubsection}{\numberline {2.1.2}Trigger after insert course}{39}{subsubsection.2.1.2}% 
+\contentsline {subsubsection}{\numberline {2.1.3}Trigger before delete course}{41}{subsubsection.2.1.3}% 
+\contentsline {subsubsection}{\numberline {2.1.4}Thủ tục chứa câu truy vấn 1}{42}{subsubsection.2.1.4}% 
+\contentsline {subsubsection}{\numberline {2.1.5}Thủ tục chứa câu truy vấn 2}{44}{subsubsection.2.1.5}% 
+\contentsline {subsubsection}{\numberline {2.1.6}Hàm 1}{45}{subsubsection.2.1.6}% 
+\contentsline {subsubsection}{\numberline {2.1.7}Hàm 2}{47}{subsubsection.2.1.7}% 
+\contentsline {subsubsection}{\numberline {2.1.8}Giao diện ứng dụng và các hình ảnh minh họa}{48}{subsubsection.2.1.8}% 
+\contentsline {subsection}{\numberline {2.2}Thao tác với bảng dữ liệu comment}{50}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Thủ tục Insert dữ liệu}{50}{subsubsection.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Trigger before insert comment}{51}{subsubsection.2.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.3}Trigger after update comment}{52}{subsubsection.2.2.3}% 
+\contentsline {subsubsection}{\numberline {2.2.4}Thủ tục chứa câu truy vấn 1}{53}{subsubsection.2.2.4}% 
+\contentsline {subsubsection}{\numberline {2.2.5}Thủ tục chứa câu truy vấn 2}{54}{subsubsection.2.2.5}% 
+\contentsline {subsubsection}{\numberline {2.2.6}Hàm 1}{55}{subsubsection.2.2.6}% 
+\contentsline {subsubsection}{\numberline {2.2.7}Hàm 2}{56}{subsubsection.2.2.7}% 
+\contentsline {subsubsection}{\numberline {2.2.8}Giao diện ứng dụng và các hình ảnh minh họa}{57}{subsubsection.2.2.8}% 
+\contentsline {subsection}{\numberline {2.3}Thao tác với bảng dữ liệu student}{59}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Thủ tục Insert dữ liệu}{59}{subsubsection.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Trigger delete student}{60}{subsubsection.2.3.2}% 
+\contentsline {subsubsection}{\numberline {2.3.3}Trigger number student deleted}{60}{subsubsection.2.3.3}% 
+\contentsline {subsubsection}{\numberline {2.3.4}Thủ tục chứa câu truy vấn 1}{61}{subsubsection.2.3.4}% 
+\contentsline {subsubsection}{\numberline {2.3.5}Thủ tục chứa câu truy vấn 2}{62}{subsubsection.2.3.5}% 
+\contentsline {subsubsection}{\numberline {2.3.6}Hàm 1}{62}{subsubsection.2.3.6}% 
+\contentsline {subsubsection}{\numberline {2.3.7}Hàm 2}{63}{subsubsection.2.3.7}% 
+\contentsline {subsubsection}{\numberline {2.3.8}Giao diện ứng dụng và các hình ảnh minh họa}{65}{subsubsection.2.3.8}% 
+\contentsline {subsection}{\numberline {2.4}Database Diagram}{66}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}Phụ lục}{67}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Báo cáo bài tập lớn số 1}{67}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Thu thập và phân tích yêu cầu (phiên bản cũ):}{67}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Vẽ (E-)ERD (đã chỉnh sửa)}{70}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}Ánh xạ sang lược đồ cơ sở dữ liệu (đã chỉnh sửa)}{71}{subsubsection.3.1.3}% 
+\contentsline {subsection}{\numberline {3.2}Source code chương trình}{72}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Bảng phân công nhiệm vụ cho phần chung}{72}{subsection.3.3}% 

@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}    % môi trường math
+\usepackage{vntex}     % tiếng việt
+\usepackage{graphicx}  % chèn hình ảnh
+\usepackage{xcolor}    % màu sắc 
+\usepackage{qtree}     % vẽ sơ đồ cây
+\usepackage{url}
+\usepackage{framed}    % đóng khung đoạn văn
+\usepackage{verbatim}  % định dạng text
+\usepackage{lastpage}  % trang ... / (trang cuối tài liệu)
+\usepackage{diagbox}   % kẻ đường chéo trong bảng
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}  % căn lề
+\usepackage{sidecap}
+
+\input{SubTex/headfoot.tex}
+\input{SubTex/other.tex}
+
+
+\author{Phạm Minh Hiếu - 1611046@hcmut.edu.vn}
+\title{Báo cáo BTL 01 OS}
+
+\begin{document}
+	
+	\input{SubTex/cover.tex}
+	\fontsize{12pt}{16} \selectfont
+	\newpage\tableofcontents\thispagestyle{empty} 
+	\newpage\setcounter{page}{1}
+	
+	\paragraph*{}\vspace{1.5cm}
+	\listoffigures\addcontentsline{toc}{section}{\listfigurename}
+	
+	\newpage
+	%\listoftables %\addcontentsline{toc}{section}{\listtablename}
+	
+	
+	
+	%\include{SubTex/a_bo_cuc_can_thiet}
+	
+	\section{Giới thiệu bài tập lớn}
+	Yêu cầu của bài tập lớn số 1 là thực hiện các bước để bổ sung một system call
+	vào trong kernel linux. System call này có công dụng để hiển thị một số thông
+	tin về một process với PID được cung cấp. \\
+	Báo cáo này sẽ mô tả từng bước để thêm system call "procsched" vào trong kernel
+	của Linux.\\
+	%\subsection{Lí do chọn đề tài}
+	%\subsection{Nội dung đề tài}
+	%\section{Cơ sở lí thuyết}
+	\section{Mô tả các bước tiến hành}
+	\subsection{Thêm một system call mới}
+	
+	Để tiến hành thêm một system call mới, trước hết ta cần phải thiết lập môi
+	trường thực hiện cũng như một số công cụ cần thiết như: thiết lập máy ảo
+	(virtual machine), cài đặt các build-essential metapackage và kernel
+	package...\\
+	
+	$\bullet$Tại sao cần phải cài đặt kernel package?\\
+	\textbf{Trả lời:} Chúng ta phải cài đặt kernel package để tự động hóa các bước cần thiết khi biên dịch và cài đặt một kernel tùy chỉnh (custom kernel).\\
+	
+	Bước tiếp theo cần làm là tải về kernel source có sẵn để tùy chỉnh\\
+	
+	$\bullet$ Tại sao ta phải dùng một mã nguồn kernel khác để compile, ta có thể compile trực tiếp bản kernel đang chạy trên hệ điều hành được không?\\
+	\textbf{Trả lời:} Không được. Vì bản kernel đang chạy trên hệ điều hành là bản kernel đã được build ra những file thực thi và cài vào kernel hệ thống. Việc chỉnh sửa trên này là bất khả thi cũng như việc compile trực tiếp bản kernel đó sẽ không thành công.\\ 
+	
+	Để thêm một system call mới vào kernel, trong thư mục chứa kernel source vừa
+	được tải về và giải nén, ta truy cập thư mục theo đường dẫn
+	"arch/x86/entry/syscalls", sau đó truy cập và chỉnh sửa hai file syscall\_32.tbl
+	và syscall\_64.tbl bằng cách thêm vào cuối mỗi file một dòng mã chứa các thông
+	số. Ví dụ đối với file syscall\_32.tbl, thông số number chính là số thứ tự của
+	dòng cuối cùng cộng thêm một:\\
+	\texttt{ [number]	i386	procsched	sys\_procsched }\\
+	
+	$\bullet$Ý nghĩa của những phần còn lại? \\
+	\textbf{Trả lời:} ie86 chỉ hệ điều hành 32 bit; procsched
+	là tên của syscall, sys\_procsched là tên của file mã nguồn implement syscall
+	đó.\\
+	
+	Tương tự với file syscall\_64.tbl, ta cũng thêm dòng sau:\\
+	\texttt{[number] x32 procsched sys\_procsched}\\
+	
+	Công việc tiếp theo là định nghĩa system call này trong file header của kernel.
+	Mở file \texttt{include/linux/syscalls.h} và thêm những dòng sau vào cuối file:
+	\\
+	\texttt{struct proc\_segs;}\\
+	\texttt{asmlinkage long sys\_procsched( int pid, struct proc\_segs * info);}\\
+	
+	$\bullet$Ý nghĩa của mỗi dòng trên?\\
+	\textbf{Trả lời:} Dòng đầu tiên ta định nghĩa một struct tên
+	là proc\_segs; dòng thứ hai prototype của hàm hiện thực syscall.\\
+	
+	\subsection{Hiện thực system call "procsched"}
+	Để làm việc này, ta tạo một file mã nguồn sys\_procsched.c trong
+	thư mục \texttt{arch/x86/kernel} (file mã nguồn có đi kèm với báo cáo) \\
+	
+	Tiếp theo ta tiến hành chỉnh sửa Makefile bằng cách thêm một dòng mã vào cuối
+	file \texttt{obj-y += sys\_procsched.o} \\
+	
+	\subsection{Biên dịch và cài đặt}
+	Để tiến hành biên dịch kernel, từ thư mục ngoài cùng của kernel source
+	(~/kernelbuild/linux-4.4.56) ta sử dụng lệnh: \texttt{\$ make} hoặc \texttt{\$
+		make -j 4} \\
+	
+	Sau khi biên dịch thành công, ta dùng lệnh \texttt{\$ make modules} hoặc lệnh
+	\texttt{\$ make -j 4 modules}\\
+	
+	$\bullet$ Ý nghĩa của lệnh \texttt{make} và \texttt{make modules}?\\
+	\textbf{Trả lời:}
+	lệnh \texttt{make} có nhiệm vụ gọi Makefile để biên dịch và liên kết file kernel
+	image và tạo file "vmlinuz", file này sẽ được bootloader load vào bộ nhớ khi
+	khởi động. Còn lệnh "make modules" sẽ biên dịch những file riêng lẻ tạo những
+	file object rồi liên kết chúng lại tạo kernel đã được build. Kernel đã sẵn sàng
+	để được cài đặt.\\
+	
+	Để cài đặt modules kernel trong thư mục modules, ta sử dụng lệnh \texttt{\$ sudo
+		make modules\_install} hoặc \texttt{\$ sudo make -j 4 modules\_install} \\
+	
+	Sau đó cài đặt kernel đã được build vào trong vmlinuz, ta dùng lệnh \texttt{\$
+		sudo make install} hoặc \texttt{\$ sudo make -j 4 install}\\
+	
+	Để chắc chắn rằng system call được cài đặt thành công sẽ hoạt động, ta viết một
+	chương trình C nhỏ có chức năng gọi syscall này.\\
+	
+	$\bullet$ Tại sao chương trình này có thể chỉ ra liệu syscall mới này hoạt động
+	hay không? \\
+	\textbf{Trả lời:} Vì chương trình này có sử dụng lời gọi trực tiếp đến syscall ta vừa
+	hiên thực. Cụ thể với lệnh: \texttt{syscall([number\_32], 1, info);} sẽ trả về
+	giá trị chứng tỏ các thông số của process được truyền vào có được đưa vào struct
+	info hay không. Từ đó ta có thể kết luận là syscall có hoạt động hay không.\\
+	
+	
+	\subsection{Tạo API cho system call "procsched"}
+	Tạo API (đóng gói syscall) giúp dễ sử dụng cho sau này. Ta lần lượt tạo file
+	"procsched.h" và "procsched.c" và hiện thực chúng.\\
+	
+	$\bullet$ Tại sao ta phải định nghĩa lại proc\_segs struct trong khi đã định
+	nghĩa nó ở trong kernel? \\
+	\textbf{Trả lời:} Vì proc\_segs struct ta đặt trong file hiện thực
+	syscall (sys\_procsched.c) và hiện tại ta chưa gọi lệnh syscall và ta cũng chưa
+	thể dùng struct này như struct trong thư viện đã có sẵn,\\
+	
+	Sau khi đã hiện thực hàm đóng gói, ta cần cài đặt nó vào máy ảo. Trước tiên ta
+	copy file header procsched.h vào /usr/include để đảm bảo bất cứ ai cũng có quyền
+	truy cập hàm này. \\
+	
+	$\bullet$ Tại sao việc copy file header này lại cần quyền root?\\
+	\textbf{Trả lời:} Vì đây là việc can thiệp vào thành phần kernel của hệ thống nên cần phải có quyền root để đảm bảo an toàn cho hệ thống.\\
+	
+	Tiếp theo ta tiến hành biên dịch file mã nguồn vừa hiện thực như một đối tượng được chia sẻ cho phép người dùng sử dụng system call vừa tạo vào chương trình của họ. Để làm điều đó ta thực hiện lệnh: \texttt{\$ gcc -shared -fpic procsched.c -o libprocsched.so}. Sau khi biên dịch thành công ta copy file kết quả (libprocsched.so) vào trong thư mục /usr/lib với quyền root.\\
+	
+	$\bullet$ Tại sao ta phải đặt "-share" và "-fpic" vào trong câu lệnh biên dịch?\\
+	\textbf{Trả lời:} "-share" và "-fpic" để cho hệ điều hành biết đoạn mã được biên dịch sẽ có thể được chia sẻ giữa các tiến trình.\\
+	\section{Kiểm tra và so sánh kết quả}
+	Kết quả của hàm kiểm tra syscall và module kernel được thể hiện ở hình bên dưới với pid test bằng 1, kết quả cho thấy syscall hoạt động bình thường sau khi được cài đặt vào trong kernel (các giá trị trả về tương đồng với hàm được test trong module kernel) :
+	
+	\begin{figure}[h!]
+		\centering
+		\caption{Kết quả test syscall sau khi đã đóng gói}
+		\includegraphics[width=0.5\textwidth]{images/test_syscall.png}
+	\end{figure}
+	
+	
+	\begin{figure}[h!]
+		\centering
+		\caption{Kết quả test module kernel}
+		\includegraphics[width=0.5\textwidth]{images/test_module_kernel.png}
+	\end{figure}
+	%\include{SubTex/thamkhao}
+	%\include{SubTex/phuluc}
+	
+\end{document}
