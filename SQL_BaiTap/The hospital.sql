@@ -404,3 +404,5 @@ FROM (SELECT block_floor, count(*) as a
 -- git sync again
 
 -- let's do the last exercise
+
+-- git status exp
