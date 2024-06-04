@@ -400,6 +400,6 @@ FROM (SELECT block_floor, count(*) as a
  SELECT employee_id, nurse.name, block.floor, block.code
  FROM nurse JOIN ( on_call JOIN block ON block_floor=floor AND block_code=code) ON nurse_id=employee_id
  
-
+-- git sync exp
 
 
